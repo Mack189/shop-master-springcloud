@@ -1,0 +1,7 @@
+com\mack\client\controller\OrderFeignController.class
+com\mack\client\config\FeignConfig.class
+com\mack\client\controller\VoucherOrderFeignController.class
+com\mack\client\service\VoucherOrderFeignService.class
+com\mack\client\ApplicationClient9001.class
+com\mack\client\service\PaymentFeignService.class
+com\mack\client\config\ClientMvcConfig.class
