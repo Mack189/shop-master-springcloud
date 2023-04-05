@@ -1,0 +1,87 @@
+server:
+  port: 8083
+
+spring:
+#  main:
+#    web-application-type: none
+  application:
+    name: cloud-blog-service
+  redis:
+    host: 192.168.137.134
+    port: 6379
+    password: 123456
+    timeout: 3000
+    lettuce:
+      pool:
+        max-active: 10
+        max-idle: 10
+        min-idle: 0
+        time-between-eviction-runs: 10s
+
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+##    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://10.42.244.5:3306/heimadp?useSSL=false&serverTimezone=UTC
+##    url: jdbc:mysql://localhost:3306/dp2022?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+#    username: root
+#    password: 123456
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/heimadp?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+
+  #  网关
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #配置Nacos地址
+      config:
+        server-addr: localhost:8848 #配置中心地址
+        file-extension: yaml #指定yaml格式的配置
+    sentinel:
+      transport:
+        dashboard: localhost:8085 #配置Sentinel dashboard地址
+        port: 8719
+#      datasource:
+#        ds1:
+#          nacos:
+#            server-addr: localhost:8848
+#            dataId: ${spring.application.name}
+#            groupId: DEFAULT_GROUP
+#            data-type: json
+#            rule-type: flow
+
+#        group: DEV_GROUP
+#        namespace: 618dc193-5b1a-49f8-9769-ef06c9a5515b
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true #开启从注册中心动态创建路由的功能，利用微服务名进行路由
+#      routes:
+#        - id: payment_routh #payment_route    #路由的ID，没有固定规则但要求唯一，建议配合服务名
+#          #          uri: http://localhost:8001          #匹配后提供服务的路由地址
+#          uri: lb://cloud-payment-service #匹配后提供服务的路由地址
+#          predicates:
+#            - Path=/payment/get/**         # 断言，路径相匹配的进行路由
+#
+#        - id: payment_routh2 #payment_route    #路由的ID，没有固定规则但要求唯一，建议配合服务名
+#          #          uri: http://localhost:8001          #匹配后提供服务的路由地址
+#          uri: lb://cloud-payment-service #匹配后提供服务的路由地址
+#          predicates:
+#            - Path=/payment/lb/**         # 断言，路径相匹配的进行路由
+#            - After=2023-01-13T16:39:52.705+08:00[GMT+08:00]
+            #            - Before=2020-03-08T10:59:34.102+08:00[Asia/Shanghai]
+            #            - Between=2020-03-08T10:59:34.102+08:00[Asia/Shanghai] ,  2020-03-08T10:59:34.102+08:00[Asia/Shanghai]
+            #            curl http://localhost:9527/payment/lb --cookie "username=zzyy"
+            #            - Cookie=username,zzyy   #Cookie=cookieName,正则表达式
+            # 请求头要有X-Request-Id属性并且值为整数的正则表达式 curl http://localhost:9527/payment/lb --cookie "username=zzyy" -H "X-Request-Id:11"
+  #            - Header=X-Request-Id, \d+
+  #
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: com.springcloud.entities
+
+mybatis-plus:
+  type-aliases-package: com.mack.common.entity # 别名扫描包
