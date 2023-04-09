@@ -2,7 +2,7 @@
 
 #### 项目介绍
 
-shop-master-springcloud是一款基于[shop-master](https://github.com/Mack189/shop-master)的商铺点评类APP，此项目对shop-master项目进行了重构，将基于SpringBoot 生态开发的项目重构为一个基于SpringCloud的项目，将原项目拆分为 5 个微服务模块，包括一个消费者和四个服务提供者，此项目在原有技术栈的基础使用了Spring Cloud Alibaba + Nacos + Sentinel + OpenFeign + RabbitMQ等技术
+shop-master-springcloud是一款基于[shop-master](https://github.com/Mack189/shop-master)的商铺点评类APP，此项目对shop-master项目进行了重构，将基于SpringBoot 生态开发的项目重构为一个基于SpringCloud的项目，将原项目拆分为 6 个微服务模块，包括一个消费者和五个服务提供者，此项目在原有技术栈的基础使用了Spring Cloud Alibaba + Nacos + Sentinel + OpenFeign + RabbitMQ等技术
 
 #### 项目功能
 
